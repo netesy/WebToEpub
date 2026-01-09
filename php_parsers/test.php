@@ -4,6 +4,7 @@ require_once __DIR__ . '/ParserFactory.php';
 
 $urls = [
     'https://www.wuxiaworld.com/novel/a-will-eternal',
+    'https://wtr-lab.com/en/novel/10052/a-millionfold-return-my-children-cultivate-immortality-and-i-become-a-god',
 ];
 
 foreach ($urls as $url) {
