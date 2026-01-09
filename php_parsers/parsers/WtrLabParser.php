@@ -4,9 +4,16 @@ require_once __DIR__ . '/../BaseParser.php';
 
 class WtrLabParser extends BaseParser {
     public function getChapterUrls(DOMDocument $dom) {
-        // The chapter list is loaded dynamically, and I was unable to find a reliable way to get the full list.
-        // Returning an empty array as a fallback.
-        return [];
+        $xpath = new DOMXPath($dom);
+        $chapterNodes = $xpath->query('//div[contains(@class, "accordion-body")]//a');
+        $chapters = [];
+        foreach ($chapterNodes as $node) {
+            $chapters[] = [
+                'sourceUrl' => 'https://wtr-lab.com' . $node->getAttribute('href'),
+                'title' => $node->textContent
+            ];
+        }
+        return $chapters;
     }
 
     public function findContent(DOMDocument $dom) {

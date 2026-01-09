@@ -1,0 +1,10 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Temporary files
+*.png
+*.html
+
+# Binaries
+composer.phar
